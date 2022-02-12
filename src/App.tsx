@@ -1,24 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container } from '@mui/material'
+import { Typography } from '@mui/material';
+import ProfilesGrid from "./containers/ProfilesGrid";
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container maxWidth="xl">
+        <Typography sx={{ padding: '1rem 0'}} variant="h4" textAlign="center">Rick and Morty characters</Typography>
+        <ProfilesGrid />
+      </Container>
     </div>
   );
 }
