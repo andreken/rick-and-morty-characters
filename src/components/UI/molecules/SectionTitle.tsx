@@ -4,8 +4,8 @@ interface IProps {
   text: string,
 }
 
-const SectionTitle = ({ text }: IProps) => (
-  <Title styles={{ borderBottom: '2px solid #000', marginBottom: '.5rem' }}>{text}</Title>
-)
+function SectionTitle({ text }: IProps) {
+  return <Title styles={{ borderBottom: '2px solid #000', marginBottom: '.5rem' }}>{text}</Title>;
+}
 
-export default SectionTitle
+export default SectionTitle;

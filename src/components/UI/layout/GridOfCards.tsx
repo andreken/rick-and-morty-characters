@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import { Grid } from '@mui/material';
 
 interface IData {
   id: number | string,
@@ -10,10 +10,11 @@ interface IProps {
   Component: React.ElementType
 }
 
-const GridOfCards = ({ data, Component }: IProps) => (
-  <Grid container spacing={2}>
-    {
-      data.map(row => (
+function GridOfCards({ data, Component }: IProps) {
+  return (
+    <Grid container spacing={2}>
+      {
+      data.map((row) => (
         <Grid key={row.id} item xs={12} sm={6} lg={4}>
           <Component
             {...row}
@@ -21,7 +22,8 @@ const GridOfCards = ({ data, Component }: IProps) => (
         </Grid>
       ))
     }
-  </Grid>
-)
+    </Grid>
+  );
+}
 
-export default GridOfCards
+export default GridOfCards;

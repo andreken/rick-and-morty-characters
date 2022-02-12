@@ -1,4 +1,4 @@
-import axios from "./axios";
+import axios from './axios';
 import {
   TCharacterResponseType,
   TCharactersResponseType,
@@ -6,21 +6,23 @@ import {
   TEpisodesResponseType,
   TLocationResponseType,
   TLocationsResponseType,
-} from "./types";
+} from './types';
 
 type ResponseType =
   TCharacterResponseType | TCharactersResponseType |
   TEpisodeResponseType | TEpisodesResponseType |
-  TLocationResponseType | TLocationsResponseType
+  TLocationResponseType | TLocationsResponseType;
 
-export const fetchData = async <T extends ResponseType>(url: string): Promise<T | null> => {
-  if (!url) return null
+const fetchData = async <T extends ResponseType>(url: string): Promise<T | null> => {
+  if (!url) return null;
 
   try {
-    const { data, status } = await axios.get(url)
-    if(status !== 200) return null
-    return data
+    const { data, status } = await axios.get(url);
+    if (status !== 200) return null;
+    return data;
   } catch (e) {
-    return null
+    return null;
   }
-}
+};
+
+export default fetchData;

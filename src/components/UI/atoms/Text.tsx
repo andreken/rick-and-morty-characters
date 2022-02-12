@@ -6,8 +6,12 @@ interface IProps {
   styles?: SxProps
 }
 
-const Text = ({ children, styles }: IProps) => (
-  <Typography variant='body2' component='p' sx={styles}>{children}</Typography>
-)
+function Text({ children, styles }: IProps) {
+  return <Typography variant="body2" component="p" sx={styles}>{children}</Typography>;
+}
 
-export default Text
+Text.defaultProps = {
+  styles: {},
+};
+
+export default Text;

@@ -1,5 +1,5 @@
-import { Label, Text } from '../atoms'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
+import { Label, Text } from '../atoms';
 
 interface IProps {
   label: string,
@@ -10,13 +10,19 @@ const StyledRoot = styled.div({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-})
+});
 
-const LabelValue = ({ label, value }: IProps) => (
-  <StyledRoot>
-    <Label styles={{ minWidth: '100px' }}>{label}</Label>
-    {value && <Text styles={{ textAlign: 'right' }}>{value}</Text>}
-  </StyledRoot>
-)
+function LabelValue({ label, value }: IProps) {
+  return (
+    <StyledRoot>
+      <Label styles={{ minWidth: '100px' }}>{label}</Label>
+      {value && <Text styles={{ textAlign: 'right' }}>{value}</Text>}
+    </StyledRoot>
+  );
+}
 
-export default LabelValue
+LabelValue.defaultProps = {
+  value: '',
+};
+
+export default LabelValue;

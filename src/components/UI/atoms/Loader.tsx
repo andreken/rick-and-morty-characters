@@ -1,5 +1,7 @@
 import CircularProgress from '@mui/material/CircularProgress';
 
-const Loader = () => <CircularProgress />
+function Loader() {
+  return <CircularProgress />;
+}
 
-export default Loader
+export default Loader;

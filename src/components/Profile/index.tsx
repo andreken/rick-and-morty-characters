@@ -1,11 +1,11 @@
-import { Card, CardContent } from '@mui/material'
-import styled from '@emotion/styled'
+import { Card, CardContent } from '@mui/material';
+import styled from '@emotion/styled';
 
-import { ICharacter } from '../../api/types'
+import { ICharacter } from '../../api/types';
 
-import Character from "./Character"
-import Location from "./Location"
-import Episodes from './Episodes'
+import Character from './Character';
+import Location from './Location';
+import Episodes from './Episodes';
 
 const StyledCardContent = styled(CardContent)({
   display: 'flex',
@@ -13,28 +13,32 @@ const StyledCardContent = styled(CardContent)({
   height: '50rem',
   ' > *:not(:last-child)': {
     paddingBottom: '1rem',
-  }
-})
+  },
+});
 
-const Profile = (data: ICharacter) => (
-  <Card>
-    <StyledCardContent>
-      <Character
-        {...data}
-      />
-      <Location
-        locationUrl={data.origin.url ?? ''}
-        locationTitle='Origin'
-      />
-      <Location
-        locationUrl={data.location.url ?? ''}
-        locationTitle='Location'
-      />
-      <Episodes
-        episodeUrls={data.episode}
-      />
-    </StyledCardContent>
-  </Card>
-)
+function Profile(data: ICharacter) {
+  const { origin, location, episode } = data;
 
-export default Profile
+  return (
+    <Card>
+      <StyledCardContent>
+        <Character
+          {...data}
+        />
+        <Location
+          locationUrl={origin.url ?? ''}
+          locationTitle="Origin"
+        />
+        <Location
+          locationUrl={location.url ?? ''}
+          locationTitle="Location"
+        />
+        <Episodes
+          episodeUrls={episode}
+        />
+      </StyledCardContent>
+    </Card>
+  );
+}
+
+export default Profile;

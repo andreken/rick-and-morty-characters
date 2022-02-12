@@ -1,5 +1,5 @@
-import { fetchData } from './fetchData'
-import { TCharactersResponseType } from './types'
+import fetchData from './fetchData';
+import { TCharactersResponseType } from './types';
 
 const emptyData: TCharactersResponseType = {
   info: {
@@ -9,11 +9,13 @@ const emptyData: TCharactersResponseType = {
     prev: null,
   },
   results: [],
-}
+};
 
-export const fetchCharacters = async (url: string) => {
-  const data = await fetchData<TCharactersResponseType>(url)
-  if(!data) return emptyData
+const fetchCharacters = async (url: string) => {
+  const data = await fetchData<TCharactersResponseType>(url);
+  if (!data) return emptyData;
 
-  return data
-}
+  return data;
+};
+
+export default fetchCharacters;

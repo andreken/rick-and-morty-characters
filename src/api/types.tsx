@@ -47,9 +47,9 @@ export interface IData<T> {
   results: T,
 }
 
-export type TCharacterResponseType = ICharacter
-export type TLocationResponseType = ILocation
-export type TEpisodeResponseType = IEpisode
-export type TCharactersResponseType = IData<ICharacter[]>
-export type TLocationsResponseType = IData<ILocation[]>
-export type TEpisodesResponseType = IData<IEpisode[]>
+export type TCharacterResponseType = ICharacter;
+export type TLocationResponseType = ILocation;
+export type TEpisodeResponseType = IEpisode;
+export type TCharactersResponseType = IData<ICharacter[]>;
+export type TLocationsResponseType = IData<ILocation[]>;
+export type TEpisodesResponseType = IData<IEpisode[]>;

@@ -6,8 +6,12 @@ interface IProps {
   styles?: SxProps,
 }
 
-const Title = ({ children, styles }: IProps) => (
-  <Typography variant='h6' sx={styles}>{children}</Typography>
-)
+function Title({ children, styles }: IProps) {
+  return <Typography variant="h6" sx={styles}>{children}</Typography>;
+}
 
-export default Title
+Title.defaultProps = {
+  styles: {},
+};
+
+export default Title;

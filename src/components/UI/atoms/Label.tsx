@@ -6,8 +6,12 @@ interface IProps {
   styles?: SxProps
 }
 
-const Label = ({ children, styles }: IProps) => (
-  <Typography variant='body1' component='label' sx={styles}>{children}</Typography>
-)
+function Label({ children, styles }: IProps) {
+  return <Typography variant="body1" component="label" sx={styles}>{children}</Typography>;
+}
 
-export default Label
+Label.defaultProps = {
+  styles: {},
+};
+
+export default Label;
