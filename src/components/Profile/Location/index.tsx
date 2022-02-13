@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import fetchLocation from '../../../api/apiLocation';
 import { ILocation } from '../../../api/types';
 
-import SectionTitle from '../../UI/molecules/SectionTitle';
+import SectionTitle from '../../UI/atoms/SectionTitle';
 import LocationData from './components/LocationData';
 import LocationSkeleton from './components/LocationSkeleton';
 import LocationEmpty from './components/LocationEmpty';
@@ -38,7 +38,7 @@ function Location({
 
   return (
     <div>
-      <SectionTitle text={locationTitle} />
+      <SectionTitle>{locationTitle}</SectionTitle>
       {
         fetchEnded
           ? SectionData

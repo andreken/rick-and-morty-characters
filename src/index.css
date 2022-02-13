@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'RickMortyFont';
+  src: local('RickMortyFont'), url(./fonts/schwifty.ttf) format('truetype');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import fetchEpisode from '../../../api/apiEpisode';
 import { IEpisode } from '../../../api/types';
 
-import SectionTitle from '../../UI/molecules/SectionTitle';
+import SectionTitle from '../../UI/atoms/SectionTitle';
 import EpisodeData from './components/EpisodeData';
 import EpisodesSkeleton from './components/EpisodesSkeleton';
 
@@ -38,7 +38,7 @@ function Episodes({ episodeUrls }: IProps) {
 
   return (
     <StyledRoot>
-      <SectionTitle text="Episodes" />
+      <SectionTitle>Episodes</SectionTitle>
       <StyledEpisodesWrapper>
         {
           episodes.length > 0

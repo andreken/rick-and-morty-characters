@@ -1,11 +1,12 @@
-import { Container, Typography } from '@mui/material';
+import { Container } from '@mui/material';
+import { PageTitle } from './components/UI/atoms';
 import ProfilesGrid from './containers/ProfilesGrid';
 
 function App() {
   return (
     <div className="App">
       <Container maxWidth="xl">
-        <Typography sx={{ padding: '1rem 0' }} variant="h4" textAlign="center">Rick and Morty characters</Typography>
+        <PageTitle styles={{ padding: '2rem 0' }}>Rick and Morty characters</PageTitle>
         <ProfilesGrid />
       </Container>
     </div>
