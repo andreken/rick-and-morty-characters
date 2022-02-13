@@ -13,7 +13,7 @@ const StyledTitle = styled(Typography)({
 });
 
 function SectionTitle({ children, styles }: IProps) {
-  return <StyledTitle sx={styles}>{children}</StyledTitle>;
+  return <StyledTitle variant="h6" sx={styles}>{children}</StyledTitle>;
 }
 
 SectionTitle.defaultProps = {

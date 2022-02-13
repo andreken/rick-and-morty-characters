@@ -1,28 +1,13 @@
-import { useEffect, useState } from 'react';
-import fetchCharacters from '../../api/apiCharacter';
-import { ICharacter } from '../../api/types';
 import GridOfCards from '../../components/UI/layout/GridOfCards';
 import Profile from '../../components/Profile';
-import Loading from '../../components/UI/layout/Loading';
+import { ICharacter } from '../../api/types';
 
-const apiCharacters = 'https://rickandmortyapi.com/api/character';
-
-function Characters() {
-  const [characters, setCharacters] = useState<ICharacter[]>([]);
-  const [fetchEnded, setFetchEnded] = useState<boolean>(false);
-
-  const getCharacters = async () => {
-    const data = await fetchCharacters(apiCharacters);
-    const { results } = data;
-    setCharacters(results);
-    setFetchEnded(true);
-  };
-
-  useEffect(() => {
-    getCharacters();
-  }, []);
-
-  return fetchEnded ? <GridOfCards data={characters} Component={Profile} /> : <Loading />;
+interface IProps {
+  characters: ICharacter[]
 }
 
-export default Characters;
+function ProfilesGrid({ characters }: IProps) {
+  return <GridOfCards data={characters} Component={Profile} />;
+}
+
+export default ProfilesGrid;
