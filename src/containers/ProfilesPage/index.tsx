@@ -24,16 +24,16 @@ function ProfilesPage() {
   const [totalPages, setTotalPages] = useState<number>(0);
 
   const getCharacters = useCallback(async () => {
+    setFetchingData(true);
     const url = `${apiCharacterBaseUrl}?page=${page}`;
     const data = await fetchCharacters(url);
     const { results, info: { pages } } = data;
     setCharacters(results);
-    setFetchingData(false);
     setTotalPages(pages);
+    setFetchingData(false);
   }, [page]);
 
   useEffect(() => {
-    setFetchingData(true);
     getCharacters();
   }, [getCharacters]);
 

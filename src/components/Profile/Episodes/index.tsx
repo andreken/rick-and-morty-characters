@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 
 import fetchEpisode from '../../../api/apiEpisode';
@@ -19,7 +19,7 @@ const StyledRoot = styled.div({
 });
 
 const StyledEpisodesWrapper = styled.div({
-  maxHeight: '100%',
+  maxHeight: '10rem',
   overflow: 'auto',
 });
 
@@ -31,9 +31,19 @@ const getEpisodes = async (urls: string[]) => {
 
 function Episodes({ episodeUrls }: IProps) {
   const [episodes, setEpisodes] = useState<IEpisode[]>([]);
+  const mountedRef = useRef(true);
 
   useEffect(() => {
-    getEpisodes(episodeUrls).then(setEpisodes);
+    getEpisodes(episodeUrls).then((result) => {
+      if (mountedRef.current) {
+        setEpisodes(result);
+      }
+    });
+
+    // eslint-disable-next-line consistent-return
+    return () => {
+      mountedRef.current = false;
+    };
   }, [episodeUrls]);
 
   return (

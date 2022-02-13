@@ -1,4 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
+import {
+  useCallback, useEffect, useRef, useState,
+} from 'react';
 
 import fetchLocation from '../../../api/apiLocation';
 import { ILocation } from '../../../api/types';
@@ -19,9 +21,11 @@ function Location({
 }: IProps) {
   const [locationData, setLocationData] = useState<ILocation | null>(null);
   const [fetchEnded, setFetchEnded] = useState<boolean>(false);
+  const mountedRef = useRef(true);
 
   const getLocation = useCallback(async () => {
     const data = await fetchLocation(locationUrl);
+    if (!mountedRef.current) return;
     setLocationData(data);
     setFetchEnded(true);
   }, [locationUrl]);
@@ -32,6 +36,11 @@ function Location({
       return;
     }
     getLocation();
+
+    // eslint-disable-next-line consistent-return
+    return () => {
+      mountedRef.current = false;
+    };
   }, [locationUrl, getLocation]);
 
   const SectionData = locationData ? <LocationData data={locationData} /> : <LocationEmpty />;

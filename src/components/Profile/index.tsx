@@ -10,7 +10,6 @@ import Episodes from './Episodes';
 const StyledCardContent = styled(CardContent)({
   display: 'flex',
   flexDirection: 'column',
-  height: '50rem',
   ' > *:not(:last-child)': {
     paddingBottom: '1rem',
   },

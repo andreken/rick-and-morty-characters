@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Masonry } from '@mui/lab';
 
 interface IData {
   id: number | string,
@@ -12,17 +12,16 @@ interface IProps {
 
 function GridOfCards({ data, Component }: IProps) {
   return (
-    <Grid container spacing={2}>
+    <Masonry columns={{ xs: 1, sm: 2, lg: 3 }} spacing={2} style={{ margin: 0 }}>
       {
-      data.map((row) => (
-        <Grid key={row.id} item xs={12} sm={6} lg={4}>
+        data.map((row) => (
           <Component
+            key={row.id}
             {...row}
           />
-        </Grid>
-      ))
-    }
-    </Grid>
+        ))
+      }
+    </Masonry>
   );
 }
 
